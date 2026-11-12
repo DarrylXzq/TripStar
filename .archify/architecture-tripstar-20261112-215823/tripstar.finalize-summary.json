@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "skipped",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/xiangzq_darryl/projects/TripStar/.archify/architecture-tripstar-20261112-215823/candidate.json",
+    "sha256": "13712e4bb052709aacdca47f2fcae21907f7a04ee3ebae0460d43afc2cf45b73",
+    "bytes": 9849
+  },
+  "artifact": {
+    "path": "/home/xiangzq_darryl/projects/TripStar/.archify/architecture-tripstar-20261112-215823/tripstar.html",
+    "sha256": "ee3da02565513e6cc6a17fcae56e7ea93d1b73cffe405da5f3610d11d69e2fe8",
+    "bytes": 852078
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "skipped"
+  },
+  "failedStage": "browser-check",
+  "diagnostics": [
+    {
+      "code": "viewer/chrome-unavailable",
+      "severity": "warning",
+      "message": "No supported browser found. Install Chrome/Chromium (or Microsoft Edge), or set ARCHIFY_CHROME to its executable path.",
+      "subject": {
+        "artifact": "/home/xiangzq_darryl/projects/TripStar/.archify/architecture-tripstar-20261112-215823/tripstar.html"
+      },
+      "evidence": {
+        "executable": null
+      },
+      "supportedFixes": [
+        "set ARCHIFY_CHROME to a Chrome/Chromium executable (or Microsoft Edge) and rerun browser-check"
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/xiangzq_darryl/projects/TripStar/.archify/architecture-tripstar-20261112-215823/tripstar.finalize.json",
+    "summaryReceipt": "/home/xiangzq_darryl/projects/TripStar/.archify/architecture-tripstar-20261112-215823/tripstar.finalize-summary.json",
+    "browserCheckReceipt": "/home/xiangzq_darryl/projects/TripStar/.archify/architecture-tripstar-20261112-215823/tripstar.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-12T13:58:38.627Z",
+    "source": "network",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2293,
+  "browserCheck": {
+    "requested": true,
+    "ran": false
+  }
+}

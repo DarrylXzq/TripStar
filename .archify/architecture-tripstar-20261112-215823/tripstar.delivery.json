@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "dd15d690-1007-41a7-bf3d-d499cd8b7e0f",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/xiangzq_darryl/projects/TripStar/.archify/architecture-tripstar-20261112-215823/candidate.json",
+  "output": "/home/xiangzq_darryl/projects/TripStar/.archify/architecture-tripstar-20261112-215823/tripstar.html",
+  "specification": {
+    "sha256": "13712e4bb052709aacdca47f2fcae21907f7a04ee3ebae0460d43afc2cf45b73",
+    "bytes": 9849
+  },
+  "artifact": {
+    "sha256": "ee3da02565513e6cc6a17fcae56e7ea93d1b73cffe405da5f3610d11d69e2fe8",
+    "bytes": 852078
+  }
+}

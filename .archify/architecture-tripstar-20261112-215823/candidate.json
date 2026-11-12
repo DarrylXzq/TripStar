@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "TripStar 中文架构图",
+    "locale": "zh-CN",
+    "output": ".archify/architecture-tripstar-20261112-215823/tripstar.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/1sdv/TripStar.git",
+      "revision": "2455e6f66ab9bf1a45147aca7103117a7a1600f9"
+    }
+  },
+  "components": [
+    {
+      "id": "web",
+      "type": "frontend",
+      "label": "旅行规划与路书",
+      "sublabel": "Vue 3 · 地图 · 图谱",
+      "pos": [
+        40,
+        40
+      ],
+      "size": [
+        180,
+        74
+      ],
+      "sources": [
+        {
+          "path": "frontend/src/views/Home.vue",
+          "line": 321,
+          "end_line": 343
+        },
+        {
+          "path": "frontend/src/services/api.ts",
+          "line": 379,
+          "end_line": 405
+        },
+        {
+          "path": "frontend/src/views/Result.vue",
+          "line": 2555,
+          "end_line": 2599
+        }
+      ]
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "FastAPI 任务接口",
+      "sublabel": "任务状态 · 历史 · WS",
+      "pos": [
+        380,
+        40
+      ],
+      "size": [
+        180,
+        74
+      ],
+      "sources": [
+        {
+          "path": "backend/app/api/routes/trip.py",
+          "line": 249,
+          "end_line": 318
+        },
+        {
+          "path": "backend/app/api/routes/trip.py",
+          "line": 347,
+          "end_line": 399
+        },
+        {
+          "path": "backend/app/api/routes/trip.py",
+          "line": 83,
+          "end_line": 102
+        }
+      ]
+    },
+    {
+      "id": "planner",
+      "type": "backend",
+      "label": "多智能体规划器",
+      "sublabel": "汇总上下文 · 解析行程",
+      "pos": [
+        740,
+        40
+      ],
+      "size": [
+        180,
+        74
+      ],
+      "sources": [
+        {
+          "path": "backend/app/agents/trip_planner_agent.py",
+          "line": 180,
+          "end_line": 234
+        },
+        {
+          "path": "backend/app/agents/trip_planner_agent.py",
+          "line": 474,
+          "end_line": 558
+        },
+        {
+          "path": "backend/app/agents/trip_planner_agent.py",
+          "line": 580,
+          "end_line": 621
+        }
+      ]
+    },
+    {
+      "id": "llm",
+      "type": "external",
+      "label": "大模型服务",
+      "sublabel": "OpenAI 兼容接口",
+      "pos": [
+        1060,
+        40
+      ],
+      "size": [
+        180,
+        74
+      ],
+      "sources": [
+        {
+          "path": "backend/app/services/llm_service.py",
+          "line": 26,
+          "end_line": 79
+        },
+        {
+          "path": "backend/app/services/chat_service.py",
+          "line": 82,
+          "end_line": 122
+        }
+      ]
+    },
+    {
+      "id": "graph",
+      "type": "backend",
+      "label": "知识图谱构建",
+      "sublabel": "行程转为节点与关系",
+      "pos": [
+        40,
+        280
+      ],
+      "size": [
+        180,
+        74
+      ],
+      "sources": [
+        {
+          "path": "backend/app/services/knowledge_graph_service.py",
+          "line": 97,
+          "end_line": 139
+        }
+      ]
+    },
+    {
+      "id": "tasks",
+      "type": "database",
+      "label": "行程任务文件",
+      "sublabel": "data/trip_tasks/*.json",
+      "pos": [
+        380,
+        280
+      ],
+      "size": [
+        180,
+        74
+      ],
+      "sources": [
+        {
+          "path": "backend/app/api/routes/trip.py",
+          "line": 22,
+          "end_line": 23
+        },
+        {
+          "path": "backend/app/api/routes/trip.py",
+          "line": 83,
+          "end_line": 102
+        },
+        {
+          "path": "backend/app/api/routes/trip.py",
+          "line": 189,
+          "end_line": 211
+        }
+      ]
+    },
+    {
+      "id": "collect",
+      "type": "backend",
+      "label": "景点／天气／酒店",
+      "sublabel": "逐城按顺序采集",
+      "pos": [
+        1060,
+        280
+      ],
+      "size": [
+        180,
+        74
+      ],
+      "sources": [
+        {
+          "path": "backend/app/agents/trip_planner_agent.py",
+          "line": 474,
+          "end_line": 511
+        },
+        {
+          "path": "backend/app/services/xhs_service.py",
+          "line": 319,
+          "end_line": 350
+        },
+        {
+          "path": "backend/app/services/xhs_service.py",
+          "line": 427,
+          "end_line": 466
+        }
+      ]
+    },
+    {
+      "id": "memory",
+      "type": "backend",
+      "label": "偏好记忆模块",
+      "sublabel": "默认内存 · 可选 SQLite",
+      "pos": [
+        740,
+        520
+      ],
+      "size": [
+        180,
+        74
+      ],
+      "sources": [
+        {
+          "path": "backend/app/memory/memory_manager.py",
+          "line": 19,
+          "end_line": 33
+        },
+        {
+          "path": "backend/app/memory/memory_manager.py",
+          "line": 111,
+          "end_line": 127
+        },
+        {
+          "path": "backend/app/memory/sqlite_store.py",
+          "line": 9,
+          "end_line": 35
+        }
+      ]
+    },
+    {
+      "id": "providers",
+      "type": "external",
+      "label": "地图与内容 APIs",
+      "sublabel": "Google／高德／小红书",
+      "pos": [
+        1060,
+        520
+      ],
+      "size": [
+        180,
+        74
+      ],
+      "sources": [
+        {
+          "path": "backend/app/services/map_dispatcher.py",
+          "line": 36,
+          "end_line": 93
+        },
+        {
+          "path": "backend/app/services/xhs_service.py",
+          "line": 122,
+          "end_line": 152
+        },
+        {
+          "path": "backend/app/agents/trip_planner_agent.py",
+          "line": 263,
+          "end_line": 288
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "web-api",
+      "from": "web",
+      "to": "api",
+      "label": "HTTP／WS",
+      "variant": "emphasis"
+    },
+    {
+      "id": "api-planner",
+      "from": "api",
+      "to": "planner",
+      "label": "异步规划",
+      "variant": "emphasis"
+    },
+    {
+      "id": "planner-llm",
+      "from": "planner",
+      "to": "llm",
+      "label": "Agent 推理",
+      "variant": "emphasis"
+    },
+    {
+      "id": "api-graph",
+      "from": "api",
+      "to": "graph",
+      "label": "构建图谱",
+      "variant": "default"
+    },
+    {
+      "id": "api-tasks",
+      "from": "api",
+      "to": "tasks",
+      "label": "读写记录",
+      "variant": "default"
+    },
+    {
+      "id": "planner-collect",
+      "from": "planner",
+      "to": "collect",
+      "label": "采集素材",
+      "variant": "default"
+    },
+    {
+      "id": "collect-llm",
+      "from": "collect",
+      "to": "llm",
+      "label": "提纯／推理",
+      "variant": "default"
+    },
+    {
+      "id": "collect-providers",
+      "from": "collect",
+      "to": "providers",
+      "label": "搜索／查询",
+      "variant": "default"
+    },
+    {
+      "id": "planner-memory",
+      "from": "planner",
+      "to": "memory",
+      "label": "开启后召回",
+      "variant": "default"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "主链路与执行顺序",
+      "items": [
+        "POST /api/trip/plan 立即返回 task_id；asyncio.create_task 在当前进程执行规划。",
+        "前端通过 WebSocket 接收进度和结果，恢复任务时先查询 status；Home 将行程和图谱写入 sessionStorage。",
+        "实际代码逐城执行：小红书景点 → 天气 Agent → 酒店 Agent → 统一行程规划；不是 README 所述的三路并发。",
+        "最终规划超时后重试一次；JSON 经清理与修复后解析为 TripPlan。"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "存储与可选记忆",
+      "items": [
+        "任务状态、请求和结果由任务路由原子替换写入 JSON 文件；运行中任务本身由进程内存管理。",
+        "知识图谱是从行程生成的 nodes／edges 数据，由前端 ECharts 展示，无独立图数据库。",
+        "ENABLE_USER_MEMORY=true 且有 user_id 时召回偏好，并在规划成功后后台提取稳定偏好。",
+        "记忆默认使用 InMemoryStore；MEMORY_USE_SQLITE=true 才使用 SQLite，默认文件为 ./memory.db。",
+        "Compose 将 backend/data 映射到 trip_data 卷；未把默认 ./memory.db 显式纳入该卷。"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "外部服务与回退条件",
+      "items": [
+        "小红书服务用原生签名客户端获取笔记，调用 LLM 提纯景点，使用统一地理编码补齐坐标。",
+        "后端有 Google Maps Key 时优先 Google，否则高德；Google 地理编码失败后后续降级高德。",
+        "Google 天气响应包含失败关键词时尝试高德天气回退；不把此机制泛化成所有地图 API 均自动回退。",
+        "前端地图 SDK 独立加载：Google 初始化失败或 5 秒超时后改用高德。"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "辅助接口与部署范围",
+      "items": [
+        "同一 FastAPI 应用还注册 POI、地图、AI 问答、运行时设置和记忆接口；上图突出行程主链路。",
+        "结果页按景点名称懒加载图片，POI 接口通过小红书服务搜图、代理图片并缓存到磁盘。",
+        "伴游问答由前端提交当前行程与聊天历史，经 chat_service 直接调用兼容 Chat Completions 接口。",
+        "Docker 将构建的前端静态文件交给 FastAPI 托管；本图是代码职责视图，不表示已启动或已部署。",
+        "源码依据固定在提交 2455e6f；外部服务和记忆配置是否可用未经实际业务调用验证。"
+      ]
+    }
+  ]
+}
